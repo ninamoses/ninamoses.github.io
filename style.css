@@ -11,6 +11,21 @@
   --radius: 8px;
   --max-w: 1000px;
   --nav-h: 60px;
+  --nav-bg: rgba(255, 255, 255, 0.75);
+  --about-bg: rgba(255, 255, 255, 0.15);
+  --weather-bg: rgba(255, 255, 255, 0.55);
+}
+
+[data-theme="dark"] {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --border: #2e3244;
+  --text: #e8eaf0;
+  --text-muted: #8b93a8;
+  --accent: #e8eaf0;
+  --nav-bg: rgba(15, 17, 23, 0.8);
+  --about-bg: rgba(255, 255, 255, 0.04);
+  --weather-bg: rgba(255, 255, 255, 0.07);
 }
 
 html { scroll-behavior: smooth; }
@@ -46,9 +61,9 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  background: rgba(255,255,255,0.75);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,0.3);
+  border-bottom: 1px solid var(--border);
   z-index: 100;
 }
 
@@ -169,14 +184,14 @@ section {
   padding: 0.45rem 1rem;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--weather-bg);
   backdrop-filter: blur(8px);
   font-size: 0.85rem;
   color: var(--text-muted);
 }
 
 /* ── About Me ── */
-.about-section { background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); }
+.about-section { background: var(--about-bg); backdrop-filter: blur(4px); }
 
 .about-inner {
   display: grid;
@@ -366,6 +381,21 @@ footer {
   color: var(--text-muted);
   border-top: 1px solid var(--border);
 }
+
+/* ── Theme Toggle ── */
+#theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--text);
+  transition: border-color 0.2s, background 0.2s;
+  line-height: 1;
+}
+
+#theme-toggle:hover { background: var(--surface); }
 
 /* ── Responsive ── */
 @media (max-width: 600px) {

@@ -36,6 +36,23 @@ loadWeather();
 
 
 
+// ── Dark / Light Mode Toggle ──
+const toggle = document.getElementById('theme-toggle');
+const saved = localStorage.getItem('theme');
+
+if (saved) {
+  document.documentElement.setAttribute('data-theme', saved);
+  toggle.textContent = saved === 'dark' ? '☀️' : '🌙';
+}
+
+toggle.addEventListener('click', () => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const next = isDark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  toggle.textContent = next === 'dark' ? '☀️' : '🌙';
+  localStorage.setItem('theme', next);
+});
+
 // Highlight active nav link on scroll
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('nav ul a');
