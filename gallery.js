@@ -4,7 +4,7 @@ const photos = [
   { src: 'images/photo1.jpg.jpg',  caption: 'Turtle Pond, Buddy Attick Park' },
   { src: 'images/photo2.jpg.jpg',  caption: 'Kovalam Beach, Kerala' },
   { src: 'images/photo3.jpg.jpg',  caption: 'Kovalam Beach, Kerala' },
-  { src: 'images/photo4.jpg.jpg',  caption: '' },
+  { src: 'images/photo4.jpg.jpg',  caption: 'Washington Monument, DC' },
   { src: 'images/photo5.jpg.jpg',  caption: '' },
   { src: 'images/photo6.jpg.jpg',  caption: '' },
   { src: 'images/photo7.jpg.jpg',  caption: '' },
