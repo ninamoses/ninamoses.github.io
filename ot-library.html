@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OT Exercise Library — Nina Moses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="ot-library.css" />
+</head>
+<body>
+
+  <nav>
+    <a class="nav-back" href="index.html">← Nina Moses</a>
+    <div class="nav-title">
+      <h1>OT Exercise Library</h1>
+      <span class="nav-subtitle">Occupational Therapy Resource</span>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- Search & Filters -->
+    <div class="controls">
+      <input
+        type="search"
+        id="search"
+        class="search-input"
+        placeholder="Search exercises..."
+        aria-label="Search exercises"
+      />
+      <div class="filters">
+        <div class="filter-group">
+          <span class="filter-label">Category</span>
+          <div class="filter-buttons" id="category-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Fine Motor">Fine Motor</button>
+            <button class="filter-btn" data-filter="Gross Motor">Gross Motor</button>
+            <button class="filter-btn" data-filter="Sensory">Sensory</button>
+            <button class="filter-btn" data-filter="Cognitive">Cognitive</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Difficulty</span>
+          <div class="filter-buttons" id="difficulty-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Easy">Easy</button>
+            <button class="filter-btn" data-filter="Moderate">Moderate</button>
+            <button class="filter-btn" data-filter="Challenging">Challenging</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="results-count" id="results-count"></p>
+
+    <!-- Exercise Grid -->
+    <div class="exercise-grid" id="exercise-grid"></div>
+
+  </main>
+
+  <!-- Detail Modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Exercise details">
+    <div class="modal-card" id="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="ot-library.js"></script>
+</body>
+</html>
