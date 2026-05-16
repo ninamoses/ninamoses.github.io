@@ -1,35 +1,43 @@
-// ── Photo data ──
-// To use your own photos:
-//   1. Create an "images/" folder in the project root
-//   2. Add your photos there
-//   3. Replace the src values below with e.g. "images/my-photo.jpg"
-const photos = [
-  { src: 'https://picsum.photos/seed/forest/800/600',   caption: 'Forest' },
-  { src: 'https://picsum.photos/seed/city/600/900',     caption: 'City' },
-  { src: 'https://picsum.photos/seed/ocean/900/600',    caption: 'Ocean' },
-  { src: 'https://picsum.photos/seed/portrait/600/800', caption: 'Portrait' },
-  { src: 'https://picsum.photos/seed/mountain/800/500', caption: 'Mountain' },
-  { src: 'https://picsum.photos/seed/street/700/900',   caption: 'Street' },
-  { src: 'https://picsum.photos/seed/flower/600/600',   caption: 'Flower' },
-  { src: 'https://picsum.photos/seed/sunset/900/500',   caption: 'Sunset' },
-  { src: 'https://picsum.photos/seed/rain/600/800',     caption: 'Rain' },
-];
+// ── 500px API ──
+const API_URL =
+  'https://api.500px.com/v1/photos?feature=user&username=ninajg26&image_size=4&rpp=20';
+
+const grid = document.getElementById('gallery-grid');
+let photos = [];
+
+async function loadPhotos() {
+  grid.innerHTML = '<p style="color:#8b93a8;padding:2rem">Loading photos...</p>';
+  try {
+    const res = await fetch(API_URL);
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    photos = data.photos.map((p) => ({
+      src: p.image_url,
+      caption: p.name && p.name.trim().length > 1 ? p.name : '',
+    }));
+    renderGrid();
+  } catch {
+    grid.innerHTML =
+      '<p style="color:#8b93a8;padding:2rem">Could not load photos. Please try again later.</p>';
+  }
+}
 
 // ── Render grid ──
-const grid = document.getElementById('gallery-grid');
-
-photos.forEach((photo, index) => {
-  const item = document.createElement('div');
-  item.className = 'gallery-item';
-  item.innerHTML = `
-    <img src="${photo.src}" alt="${photo.caption}" loading="lazy" />
-    <div class="gallery-item-overlay">
-      <span class="gallery-item-caption">${photo.caption}</span>
-    </div>
-  `;
-  item.addEventListener('click', () => openLightbox(index));
-  grid.appendChild(item);
-});
+function renderGrid() {
+  grid.innerHTML = '';
+  photos.forEach((photo, index) => {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.innerHTML = `
+      <img src="${photo.src}" alt="${photo.caption}" loading="lazy" />
+      <div class="gallery-item-overlay">
+        <span class="gallery-item-caption">${photo.caption}</span>
+      </div>
+    `;
+    item.addEventListener('click', () => openLightbox(index));
+    grid.appendChild(item);
+  });
+}
 
 // ── Lightbox ──
 const lightbox = document.getElementById('lightbox');
@@ -80,3 +88,5 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') showPrev();
   if (e.key === 'ArrowRight') showNext();
 });
+
+loadPhotos();
