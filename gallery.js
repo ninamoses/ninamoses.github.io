@@ -12,7 +12,7 @@ const photos = [
   { src: 'images/photo9.jpg.jpg',  caption: 'Sunset at Peyad, Kerala' },
   { src: 'images/photo10.jpg.jpg', caption: 'Shangumukham Beach, Thiruvananthapuram' },
   { src: 'images/photo11.jpg.jpg', caption: 'Sunset in Poovar, Kerala' },
-  { src: 'images/photo12.jpg.jpg', caption: '' },
+  { src: 'images/photo12.jpg.jpg', caption: 'Poovar, Kerala' },
   { src: 'images/photo13.jpg.jpg', caption: '' },
   { src: 'images/photo14.jpg.jpg', caption: '' },
 ];
