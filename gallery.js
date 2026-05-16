@@ -8,7 +8,7 @@ const photos = [
   { src: 'images/photo5.jpg.jpg',  caption: 'Varkala Beach, Kerala' },
   { src: 'images/photo6.jpg.jpg',  caption: 'Poovar, Kerala' },
   { src: 'images/photo7.jpg.jpg',  caption: 'Lake Artemesia, Maryland' },
-  { src: 'images/photo8.jpg.jpg',  caption: '' },
+  { src: 'images/photo8.jpg.jpg',  caption: 'Lake Artemesia' },
   { src: 'images/photo9.jpg.jpg',  caption: '' },
   { src: 'images/photo10.jpg.jpg', caption: '' },
   { src: 'images/photo11.jpg.jpg', caption: '' },
