@@ -5,7 +5,7 @@ const photos = [
   { src: 'images/photo2.jpg.jpg',  caption: 'Kovalam Beach, Kerala' },
   { src: 'images/photo3.jpg.jpg',  caption: 'Kovalam Beach, Kerala' },
   { src: 'images/photo4.jpg.jpg',  caption: 'Washington Monument, DC' },
-  { src: 'images/photo5.jpg.jpg',  caption: '' },
+  { src: 'images/photo5.jpg.jpg',  caption: 'Varkala Beach, Kerala' },
   { src: 'images/photo6.jpg.jpg',  caption: '' },
   { src: 'images/photo7.jpg.jpg',  caption: '' },
   { src: 'images/photo8.jpg.jpg',  caption: '' },
