@@ -1,9 +1,7 @@
 // ── Add your photos to the images/ folder, then list them here ──
 // Example: { src: 'images/my-photo.jpg', caption: 'My Caption' }
 const photos = [
-  { src: 'images/photo1.jpg', caption: '' },
-  { src: 'images/photo2.jpg', caption: '' },
-  { src: 'images/photo3.jpg', caption: '' },
+  { src: 'images/photo1.jpg', caption: 'Turtle Pond, Buddy Attick Park' },
 ];
 
 // ── Render grid ──
