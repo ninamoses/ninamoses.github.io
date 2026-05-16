@@ -160,6 +160,21 @@ section {
   flex-wrap: wrap;
 }
 
+/* ── Weather Badge ── */
+.weather-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
 /* ── About Me ── */
 .about-section { background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); }
 
