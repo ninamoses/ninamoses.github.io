@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PawSitter — Pet Sitting App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="../index.html">← Nina Moses</a>
+    <div class="nav-brand">🐾 PawSitter</div>
+    <div class="nav-tabs">
+      <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+      <button class="tab-btn" data-tab="pets">My Pets</button>
+      <button class="tab-btn" data-tab="sitters">Find a Sitter</button>
+      <button class="tab-btn" data-tab="bookings">Bookings</button>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- DASHBOARD -->
+    <section id="tab-dashboard" class="tab-section active">
+      <div class="page-header">
+        <h1>Welcome back! 🐾</h1>
+        <p class="page-sub">Here's a quick look at your pet care activity.</p>
+      </div>
+      <div class="stats-grid" id="stats-grid"></div>
+      <div class="dashboard-cols">
+        <div>
+          <h2 class="section-title">Upcoming Bookings</h2>
+          <div id="upcoming-bookings"></div>
+        </div>
+        <div>
+          <h2 class="section-title">Your Pets</h2>
+          <div id="dashboard-pets"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MY PETS -->
+    <section id="tab-pets" class="tab-section">
+      <div class="page-header">
+        <h1>My Pets</h1>
+        <button class="btn btn-primary" id="add-pet-btn">+ Add Pet</button>
+      </div>
+      <div class="pet-grid" id="pet-grid"></div>
+
+      <!-- Add Pet Modal -->
+      <div class="modal" id="pet-modal">
+        <div class="modal-card">
+          <button class="modal-close" id="close-pet-modal">✕</button>
+          <h2 class="modal-title" id="pet-modal-title">Add a Pet</h2>
+          <form id="pet-form" class="form">
+            <input type="hidden" id="pet-id" />
+            <div class="form-row">
+              <div class="form-group">
+                <label>Pet Name *</label>
+                <input type="text" id="pet-name" placeholder="e.g. Buddy" required />
+              </div>
+              <div class="form-group">
+                <label>Species *</label>
+                <select id="pet-species">
+                  <option value="Dog">Dog</option>
+                  <option value="Cat">Cat</option>
+                  <option value="Bird">Bird</option>
+                  <option value="Rabbit">Rabbit</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Breed</label>
+                <input type="text" id="pet-breed" placeholder="e.g. Golden Retriever" />
+              </div>
+              <div class="form-group">
+                <label>Age (years)</label>
+                <input type="number" id="pet-age" min="0" max="30" placeholder="e.g. 3" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Care Instructions</label>
+              <textarea id="pet-care" rows="3" placeholder="Feeding schedule, medications, special needs..."></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline" id="cancel-pet">Cancel</button>
+              <button type="submit" class="btn btn-primary">Save Pet</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FIND A SITTER -->
+    <section id="tab-sitters" class="tab-section">
+      <div class="page-header">
+        <h1>Find a Sitter</h1>
+        <p class="page-sub">Browse trusted pet sitters in your area.</p>
+      </div>
+      <div class="sitter-grid" id="sitter-grid"></div>
+
+      <!-- Sitter Detail Modal -->
+      <div class="modal" id="sitter-modal">
+        <div class="modal-card">
+          <button class="modal-close" id="close-sitter-modal">✕</button>
+          <div id="sitter-detail"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKINGS -->
+    <section id="tab-bookings" class="tab-section">
+      <div class="page-header">
+        <h1>My Bookings</h1>
+        <button class="btn btn-primary" id="add-booking-btn">+ New Booking</button>
+      </div>
+      <div id="bookings-list"></div>
+
+      <!-- Add Booking Modal -->
+      <div class="modal" id="booking-modal">
+        <div class="modal-card">
+          <button class="modal-close" id="close-booking-modal">✕</button>
+          <h2 class="modal-title">New Booking</h2>
+          <form id="booking-form" class="form">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Pet *</label>
+                <select id="booking-pet" required></select>
+              </div>
+              <div class="form-group">
+                <label>Sitter *</label>
+                <select id="booking-sitter" required></select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Start Date *</label>
+                <input type="date" id="booking-start" required />
+              </div>
+              <div class="form-group">
+                <label>End Date *</label>
+                <input type="date" id="booking-end" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Service Type</label>
+              <select id="booking-service">
+                <option value="Drop-in Visit">Drop-in Visit</option>
+                <option value="Dog Walking">Dog Walking</option>
+                <option value="Overnight Stay">Overnight Stay</option>
+                <option value="House Sitting">House Sitting</option>
+                <option value="Doggy Day Care">Doggy Day Care</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Notes for Sitter</label>
+              <textarea id="booking-notes" rows="3" placeholder="Any special instructions..."></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline" id="cancel-booking">Cancel</button>
+              <button type="submit" class="btn btn-primary">Confirm Booking</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
